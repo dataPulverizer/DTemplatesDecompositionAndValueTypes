@@ -32,7 +32,7 @@ void main()
 ## Decomposition
 Now you need write something a bit more complicated for example to get the number of elements in a static array. You can do this by decomposing the types using templates/template functions to obtain the number of elements in your static array. The example below does this using a template function.
 
-```
+```d
 //decomp.d
 import std.stdio: writeln;
 
@@ -55,7 +55,7 @@ void main()
 
 You can also do this with a template:
 
-```
+```d
 //decompT.d
 import std.stdio: writeln;
 
@@ -79,12 +79,12 @@ void main()
 
 The terminology here is a bit confusing, a common meaning of "value type" differentiates value and reference variables. That's not what this is about, here we are talking about when a value is actually part of a type signature rather than being contained in an object ... ooo very interesting!  Consider the following:
 
-```
+```d
 struct Value(alias val){}
 ```
 That is what I'm referring to as a "value type". Here the value `val` is part of the type signature of the `Value` template. So if we create on of these, the value in `val` will be available to us at compile time, but how do we get hold of `val`? We use a decomposition pattern as before:
 
-```
+```d
 import std.stdio: writeln;
 import std.traits: isFloatingPoint;
 
