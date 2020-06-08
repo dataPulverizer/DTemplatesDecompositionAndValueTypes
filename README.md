@@ -1,4 +1,4 @@
-# D template basics: decomposition and value types
+# D template basics: argument deduction and value types
 
 ## Introduction
 
@@ -29,7 +29,7 @@ void main()
   writeln("dot: ", x.dot(x));
 }
 ```
-## Decomposition
+## Template argument deduction
 Now you need write something a bit more complicated for example to get the number of elements in a static array. You can do this by decomposing the template types using templates or template functions to obtain the number of elements in your static array. The example below does this using a template function.
 
 ```d
@@ -81,7 +81,7 @@ The terminology here is a bit confusing, a common meaning of "value type" differ
 ```d
 struct Value(alias val){}
 ```
-That is what I'm referring to as a "value type". Here the value `val` is part of the type signature of the `Value` template. So if we create one of these, the value in `val` will be available to us at compile time, but how do we get hold of `val`? We use a decomposition pattern as before:
+That is what I'm referring to as a "value type". Here the value `val` is part of the type signature of the `Value` template. So if we create one of these, the value in `val` will be available to us at compile time, but how do we get hold of `val`? We use an argument deduction pattern as before:
 
 ```d
 import std.stdio: writeln;
